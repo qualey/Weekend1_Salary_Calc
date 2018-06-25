@@ -2,16 +2,29 @@ body {
     font-family: Tahoma, sans-serif;
   }
   
-  table, td {
+table, td {
     border: 1px solid gray;
   }
   
-  td {
+  /* td {
     margin: 0;
     width: 180px;
     padding: 3px;
-  }
+  } */
   
   th {
-    background-color: lightblue;
+    background-color: lightslategray;
+  } 
+
+  .under {
+      background-color: lightgreen;     
+  }
+
+  .over {
+      background-color: red;
+  }
+
+  #monthly {
+      float: right;
+      margin: 0 50px 0 0;
   }

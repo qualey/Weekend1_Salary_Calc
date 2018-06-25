@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
 
+<html>
 
 <head>
     <meta charset="utf-8" />
@@ -13,22 +13,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-
 <body class="container">
 
-
-    <header>
+    <header class="card-header">
         <h1>Salary Calculator</h1>
     </header>
 
-
     <main>
 
+        <h4 class="card-body">Add Employee</h4>
 
-        <h4>Add Employee</h4>
-
-
-        <div>
+        <div class="card-body">
             <input id="firstName" type="text" placeholder="First Name" />
             <input id="lastName" type="text" placeholder="Last Name" />
             <input id="idNumber" type="text" placeholder="ID Number" />
@@ -37,28 +32,27 @@
             <button id="submit">Submit</button>
         </div>
 
+        <h4 class="card-body">Employees</h4>
 
-        <h4>Employees</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Annual Salary</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="employeeTable"></tbody>
+        </table>
 
+        <div id="monthly">
+        </div>
 
-    <table class="table">
-      <thead>
-       <tr> 
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Annual Salary</th>
-        <th>Delete</th>
-       </tr>
-      </thead>  
-    <tbody id="employeeTable"></tbody>
-    </table>
-
-
-    <h4>Total Monthly :</h4>
-
-    
     </main>
+
 </body>
+
 </html>
