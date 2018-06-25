@@ -1,37 +1,36 @@
-let employees = [
-    {
-        firstName : 'Ross',
-        lastName : 'Qualey',
-        idNumber : '81202',
-        jobTitle : 'Farmer',
-        annualSalary : 50000,
-    },{
-        firstName : 'Nanci',
-        lastName : 'Qualey',
-        idNumber : '105351',
-        jobTitle : 'Teacher',
-        annualSalary : 50000,
-    },{
-        firstName : 'Liam',
-        lastName : 'Qualey',
-        idNumber : '99910',
-        jobTitle : 'Pilot',
-        annualSalary : 50000,
-    },{
-        firstName : 'Graham',
-        lastName : 'Qualey',
-        idNumber : '58409',
-        jobTitle : 'Astronaut',
-        annualSalary : 50000,
-    },
-];
+let employees = [{
+    firstName: 'Ross',
+    lastName: 'Qualey',
+    idNumber: '81202',
+    jobTitle: 'Farmer',
+    annualSalary: 50000,
+}, {
+    firstName: 'Nanci',
+    lastName: 'Qualey',
+    idNumber: '105351',
+    jobTitle: 'Teacher',
+    annualSalary: 50000,
+}, {
+    firstName: 'Liam',
+    lastName: 'Qualey',
+    idNumber: '99910',
+    jobTitle: 'Pilot',
+    annualSalary: 50000,
+}, {
+    firstName: 'Graham',
+    lastName: 'Qualey',
+    idNumber: '58409',
+    jobTitle: 'Astronaut',
+    annualSalary: 50000,
+}, ];
 
-$(document).ready( readyNow );
+$(document).ready(readyNow);
+
 function readyNow() {
 
-    addClickHandlers ();
+    addClickHandlers();
 
-    for(let employeeInfo of employees){
+    for (let employeeInfo of employees) {
         addRow(employeeInfo.firstName, employeeInfo.lastName, employeeInfo.idNumber, employeeInfo.jobTitle, employeeInfo.annualSalary);
         calculateMonthly();
     }
@@ -39,7 +38,7 @@ function readyNow() {
     function addClickHandlers() {
         $('#submit').on('click', handleSubmit);
         $('#employeeTable').on('click', '.deleteBtn', handleDelete);
-    }// end addClickHandlers
+    } // end addClickHandlers
 
     function handleSubmit() {
         let firstName = $('#firstName').val();
@@ -49,7 +48,13 @@ function readyNow() {
         let annualSalary = $('#annualSalary').val();
 
         addRow(firstName, lastName, idNumber, jobTitle, annualSalary);
-        employees.push({firstName, lastName, idNumber, jobTitle, annualSalary});
+        employees.push({
+            firstName,
+            lastName,
+            idNumber,
+            jobTitle,
+            annualSalary
+        });
         calculateMonthly();
 
         $('#firstName').val('');
@@ -58,12 +63,11 @@ function readyNow() {
         $('#jobTitle').val('');
         $('#annualSalary').val('');
 
-
     } //end handleSubmit
 
     function handleDelete() {
         const row = $(this).closest('tr');
-        
+
         // const id = row[0].cells[2].innerHTML;
 
         // for(let i = 0; i < employees.length; i++) {
@@ -87,26 +91,23 @@ function readyNow() {
 
         $("#employeeTable").append($row);
 
-    }// end addRow
-
-    
+    } // end addRow
 
     function calculateMonthly() {
         let total = 0;
-        for(let i = 0; i < employees.length; i++) {
+        for (let i = 0; i < employees.length; i++) {
             total = parseInt(total) + parseInt(employees[i].annualSalary);
         }
 
         bgColor = 'under';
         monthly = (total / 12).toFixed(2);
-        
-        if(monthly > 20000) {
+
+        if (monthly > 20000) {
             bgColor = 'over';
         }
-        
+
         $("#monthly").html('<h4 class=' + bgColor + '>Total Monthly :' + ' ' + monthly + '</h4>');
 
     }
 
-}// end readyNow
-
+} // end readyNow
